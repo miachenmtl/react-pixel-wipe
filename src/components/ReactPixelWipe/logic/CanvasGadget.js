@@ -141,7 +141,7 @@ class CanvasGadget {
       imgEl.height,
       width,
       height,
-      settings.imageSize,
+      settings.scaleImageTo,
     );
     this.#dirtyDims = imageDims.slice(4);
     this.#bufferContext.drawImage(imgEl, ...imageDims);

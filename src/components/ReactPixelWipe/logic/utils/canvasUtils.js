@@ -25,7 +25,7 @@ const createInitialIndices = (length, width, wipeDirection) => {
     case 'up': return initialArray.reverse();
     case 'left': return transposeArray(initialArray, width).reverse();
     case 'right': return transposeArray(initialArray, width);
-    default: throw new Error(`Unrecognized wipeDirection argument: ${wipeDirection}`);
+    default: throw new Error(`Unrecognized wipeDirection prop \`${wipeDirection}\`!`);
   }
 };
 
@@ -49,7 +49,7 @@ const createShuffledIndices = (length, width, wipeDirection, offset) => {
   return indices;
 };
 
-const calculateImageDims = (imageWidth, imageHeight, canvasWidth, canvasHeight, imageSize) => {
+const calculateImageDims = (imageWidth, imageHeight, canvasWidth, canvasHeight, scaleImageTo) => {
   const imageAspectRatio = imageWidth / imageHeight;
   const canvasAspectRatio = canvasWidth / canvasHeight;
   const isWiderThanCanvas = imageAspectRatio > canvasAspectRatio;
@@ -63,7 +63,7 @@ const calculateImageDims = (imageWidth, imageHeight, canvasWidth, canvasHeight, 
   let destWidth = canvasWidth;
   let destHeight = canvasHeight;
 
-  switch (imageSize) {
+  switch (scaleImageTo) {
     case 'cover':
       if (isWiderThanCanvas) {
         sourceWidth = Math.round(sourceHeight / canvasAspectRatio);
@@ -84,8 +84,24 @@ const calculateImageDims = (imageWidth, imageHeight, canvasWidth, canvasHeight, 
       break;
     case 'fit':
       break;
+    case 'none':
+      if (imageWidth > canvasWidth) {
+        sourceWidth = canvasWidth;
+        sourceX = Math.round((imageWidth - canvasWidth) / 2);
+      } else {
+        destWidth = imageWidth;
+        destX = Math.round((canvasWidth - imageWidth) / 2);
+      }
+      if (imageHeight > canvasHeight) {
+        sourceHeight = canvasHeight;
+        sourceY = Math.round((imageHeight - canvasHeight) / 2);
+      } else {
+        destHeight = imageHeight;
+        destY = Math.round((canvasHeight - imageHeight) / 2);
+      }
+      break;
     default:
-      throw new Error(`Unrecognized imageSize prop ${imageSize}!`);
+      throw new Error(`Unrecognized scaleImageTo prop \`${scaleImageTo}\`!`);
   }
 
   return [

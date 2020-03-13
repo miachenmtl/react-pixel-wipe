@@ -41,7 +41,7 @@ const Example = () => {
     const allDefaultProps = {
       isDisabled: false,
       wipeDirection: 'down',
-      imageSize: 'cover',
+      scaleImageTo: 'cover',
       scrollLength: '4x',
       disableAfterWipe: true,
       onAfterWipe: () => {},
@@ -67,7 +67,7 @@ const Example = () => {
     console.log('The default props of `ReactPixelWipe are:');
     console.log(allDefaultProps);
     console.log('Further explanations:');
-    console.log('`imageSize` keywords `cover` and `contain` behave like the CSS `background-size` properties. Use `fit` to scale to canvas.');
+    console.log('`scaleImageTo` keywords `cover` and `contain` behave like the CSS `background-size` properties. Use `fit` to scale to canvas.');
     console.log('`scrollLength` is a string that either ends in `px` for pixels or `x` for a factor in relation to container element height.');
     console.log('`onAfterWipe` callback fires after scrolling finished and animation complete.');
     console.log('`shuffleRatio` is between 0 (no shuffled pixels, i.e. a normal wipe), and 1 (pixels completely randomized, i.e. a pixel dissolve).');

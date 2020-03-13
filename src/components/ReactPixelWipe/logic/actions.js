@@ -53,7 +53,7 @@ const createCanvasGadget = (state, payload) => {
   const {
     canvasGadget: {
       wipeDirection,
-      imageSize,
+      scaleImageTo,
       shuffleOffset,
       pixelFadeIntervals,
       framesPerSecond,
@@ -71,7 +71,7 @@ const createCanvasGadget = (state, payload) => {
       : () => { onAfterWipeProp(); };
     const settings = {
       wipeDirection,
-      imageSize,
+      scaleImageTo,
       shuffleOffset,
       pixelFadeIntervals,
       framesPerSecond,

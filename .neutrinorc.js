@@ -9,6 +9,6 @@ module.exports = {
   use: [
     airbnb(),
     reactComponents(),
-    jest(),
+    jest({ setupFiles: ['jest-canvas-mock'] }),
   ],
 };

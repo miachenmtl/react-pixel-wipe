@@ -18,7 +18,7 @@ const defaultOptions = {
 const ReactPixelWipe = ({
   isDisabled,
   wipeDirection,
-  imageSize,
+  scaleImageTo,
   shuffleRatio,
   scrollLength,
   disableAfterWipe,
@@ -30,7 +30,7 @@ const ReactPixelWipe = ({
   children,
 }) => {
   const basicProps = {
-    isDisabled, wipeDirection, imageSize, shuffleRatio, scrollLength, disableAfterWipe, onAfterWipe,
+    isDisabled, wipeDirection, scaleImageTo, shuffleRatio, scrollLength, disableAfterWipe, onAfterWipe,
   };
   const mergedOptions = { ...defaultOptions, ...options };
   const {
@@ -85,7 +85,7 @@ const ReactPixelWipe = ({
 ReactPixelWipe.propTypes = {
   isDisabled: PropTypes.bool,
   wipeDirection: PropTypes.oneOf(['up', 'down', 'left', 'right']),
-  imageSize: PropTypes.oneOf(['cover', 'contain', 'fit']),
+  scaleImageTo: PropTypes.oneOf(['cover', 'contain', 'fit']),
   scrollLength: PropTypes.string,
   disableAfterWipe: PropTypes.bool,
   onAfterWipe: PropTypes.func,
@@ -115,7 +115,7 @@ ReactPixelWipe.propTypes = {
 ReactPixelWipe.defaultProps = {
   isDisabled: false,
   wipeDirection: 'down',
-  imageSize: 'cover',
+  scaleImageTo: 'cover',
   scrollLength: '4x',
   disableAfterWipe: true,
   onAfterWipe: () => {},

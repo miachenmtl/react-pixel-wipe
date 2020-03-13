@@ -6,7 +6,7 @@ const initializeState = (
   defaultState,
   {
     isDisabled,
-    imageSize,
+    scaleImageTo,
     wipeDirection,
     scrollLength,
     shuffleRatio,
@@ -27,7 +27,7 @@ const initializeState = (
   initialState.canvasGadget = {
     ...defaultState.canvasGadget,
     wipeDirection,
-    imageSize,
+    scaleImageTo,
     shuffleRatio,
     pixelFadeIntervals,
     framesPerSecond,

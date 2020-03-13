@@ -30,7 +30,7 @@ const defaultState = {
   },
   canvasGadget: {
     wipeDirection: 'bottom',
-    imageSize: 'cover',
+    scaleImageTo: 'cover',
     shuffleRatio: 0,
     shuffleOffset: 0,
     pixelFadeIntervals: [],
